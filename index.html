@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Analytic Hierarchy Process (AHP)</title>
+  <meta charset="utf-8">
+  <meta name="description" content="Analytic Hierarchy Process (AHP)">
+  <meta name="author" content="Wahsabii Neanderthal (wahsabii@gmail.com)">
+  <meta name="generator" content="slidify" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/default.css" media="all" >
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/phone.css" 
+    media="only screen and (max-device-width: 480px)" >
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/slidify.css" >
+  <link rel="stylesheet" href="libraries/highlighters/highlight.js/css/tomorrow.css" />
+  <base target="_blank"> <!-- This amazingness opens all links in a new tab. -->  <link rel=stylesheet href="./assets/css/ribbons.css"></link>
+
+  
+  <!-- Grab CDN jQuery, fall back to local if offline -->
+  <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.7.min.js"></script>
+  <script>window.jQuery || document.write('<script src="libraries/widgets/quiz/js/jquery.js"><\/script>')</script> 
+  <script data-main="libraries/frameworks/io2012/js/slides" 
+    src="libraries/frameworks/io2012/js/require-1.0.8.min.js">
+  </script>
+  
+  
+
+</head>
+<body style="opacity: 0">
+  <slides class="layout-widescreen">
+    
+    <!-- LOGO SLIDE -->
+        <slide class="title-slide segue nobackground">
+  <hgroup class="auto-fadein">
+    <h1>Analytic Hierarchy Process (AHP)</h1>
+    <h2>Priority Vector and Inconsistency Ratios in Shiny</h2>
+    <p>Wahsabii Neanderthal (wahsabii@gmail.com)<br/></p>
+  </hgroup>
+  <article></article>  
+</slide>
+    
+
+    <!-- SLIDES -->
+    <slide class="" id="slide-1" style="background:;">
+  <hgroup>
+    <h2>Purpose</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>To calculate an analytic hierarchy process (AHP) priority vector with its inconsistency ratios.</p>
+
+<h2>Scope</h2>
+
+<ul>
+<li><p>In scope: </p>
+
+<ul>
+<li>Input: a square pairwise comparison matrix in the form of a delimited text file accessible to the user&#39;s local computer. </li>
+<li>Process: a R Shiny application using an AHP function from the pmr package.</li>
+<li>Output: an AHP priority vector with Saaty and Koczkodaj inconsistency ratios to the screen.</li>
+</ul></li>
+<li><p>Out of scope: </p>
+
+<ul>
+<li>Anything not using a CSV pairwise comparison matrix text file as an input with an output a computed priority vector with inconsistency ratios to the screen using a R Shiny application. The number of simulations for inconsistency ratios are also not considered.<br></li>
+</ul></li>
+</ul>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-2" style="background:;">
+  <hgroup>
+    <h2>The Fundamental Scale for Pairwise Comparisons</h2>
+  </hgroup>
+  <article data-timings="">
+    <ul>
+<li>In an AHP matrix, the row entry is compared to the column entry.<br></li>
+<li>Each pair is compared twice: once above and below the diagonal with reciprocal values.<br></li>
+<li>As in the example below, the element A1 in the first row has a strong importance, 5,  over element A2 in the second column.  Also, row A2 element is 1/5 the value of the A1 element. 
+<img src="MatrixExample.png" alt=""> The fundamental scale is as follows:<br></li>
+</ul>
+
+<table><thead>
+<tr>
+<th>Value</th>
+<th>Definition</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>1</strong></td>
+<td>Equal importance</td>
+</tr>
+<tr>
+<td><strong>3</strong></td>
+<td>Moderate importance</td>
+</tr>
+<tr>
+<td><strong>5</strong></td>
+<td>Strong importance</td>
+</tr>
+<tr>
+<td><strong>7</strong></td>
+<td>Very strong or demonstrated importance</td>
+</tr>
+<tr>
+<td><strong>9</strong></td>
+<td>Extreme importance</td>
+</tr>
+</tbody></table>
+
+<p>Note: 2, 4, 6, and 8 are for compromises between the above values.</p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-3" style="background:;">
+  <hgroup>
+    <h2>Process Steps with Examples</h2>
+  </hgroup>
+  <article data-timings="">
+    <p><img src="chooseFile.png" alt=""><br>
+Result is the following priority vector; please compare with Process #5 example output above:  </p>
+
+<pre><code>## [1] 0.61 0.24 0.10 0.04
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-4" style="background:;">
+  <hgroup>
+    <h2>Results of the AHP Shiny App</h2>
+  </hgroup>
+  <article data-timings="">
+    <p><img src="results2.png" alt="">  </p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+    <slide class="backdrop"></slide>
+  </slides>
+  <div class="pagination pagination-small" id='io2012-ptoc' style="display:none;">
+    <ul>
+      <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=1 title='Purpose'>
+         1
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=2 title='The Fundamental Scale for Pairwise Comparisons'>
+         2
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=3 title='Process Steps with Examples'>
+         3
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=4 title='Results of the AHP Shiny App'>
+         4
+      </a>
+    </li>
+  </ul>
+  </div>  <!--[if IE]>
+    <script 
+      src="http://ajax.googleapis.com/ajax/libs/chrome-frame/1/CFInstall.min.js">  
+    </script>
+    <script>CFInstall.check({mode: 'overlay'});</script>
+  <![endif]-->
+</body>
+  <!-- Load Javascripts for Widgets -->
+  
+  <!-- MathJax: Fall back to local if CDN offline but local image fonts are not supported (saves >100MB) -->
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        inlineMath: [['$','$'], ['\\(','\\)']],
+        processEscapes: true
+      }
+    });
+  </script>
+  <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/2.0-latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  <!-- <script src="https://c328740.ssl.cf1.rackcdn.com/mathjax/2.0-latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+  </script> -->
+  <script>window.MathJax || document.write('<script type="text/x-mathjax-config">MathJax.Hub.Config({"HTML-CSS":{imageFont:null}});<\/script><script src="libraries/widgets/mathjax/MathJax.js?config=TeX-AMS-MML_HTMLorMML"><\/script>')
+</script>
+<!-- LOAD HIGHLIGHTER JS FILES -->
+  <script src="libraries/highlighters/highlight.js/highlight.pack.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+  <!-- DONE LOADING HIGHLIGHTER JS FILES -->
+   
+  </html>
